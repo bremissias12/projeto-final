@@ -1,0 +1,14 @@
+api:
+  url: "https://randomuser.me/api/"
+  results: 10
+
+database:
+  path: "assets/database.db"
+  table: "users"
+
+validation:
+  min_rows: 1
+  required_columns:
+    - gender
+    - email
+    - nat
