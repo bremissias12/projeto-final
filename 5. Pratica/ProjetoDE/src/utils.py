@@ -66,6 +66,8 @@ def validation_inputs(df, configs):
 
 def preparation(df, configs):
     
+    
+    
     """
     Função de preparação dos dados:
         - Renomeia colunas
@@ -99,7 +101,7 @@ def preparation(df, configs):
     db_path = configs["database"]["path"]
     table_name = configs["database"]["table"]
 
-   with sqlite3.connect(db_path) as conn:
+    with sqlite3.connect(db_path) as conn:
         df.to_sql(
             table_name,
             conn,
