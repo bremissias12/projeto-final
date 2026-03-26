@@ -1,9 +1,7 @@
 import pandas as pd
 import requests
 import utils as utils
-
-import pandas as pd
-import requests
+import logging
 import sqlite3
 import re
 
@@ -34,12 +32,36 @@ def ingestion(configs):
     return df
 
 
+
+
 def validation_inputs(df, configs):
     """
-    Função de validação dos dados antes de salvar no banco de dados
-    Output: Se não estiver no padrão correto interrompe o processo e salva alerta em 
-    um arquivo de logs. Se estiver correto, salva log com mensagem: 'Dados corretos'
+    Valida dados antes de salvar no banco.
     """
+
+    logging.info("Iniciando validação dos dados")
+
+    # valida dataframe vazio
+    if df.empty:
+        logging.error("DataFrame vazio")
+        raise ValueError("DataFrame vazio")
+
+    # valida número mínimo de linhas
+    min_rows = configs["validation"]["min_rows"]
+    if len(df) < min_rows:
+        logging.error("Quantidade de linhas insuficiente")
+        raise ValueError("Poucas linhas")
+
+    # valida colunas obrigatórias
+    required_cols = configs["validation"]["required_columns"]
+
+    for col in required_cols:
+        if col not in df.columns:
+            logging.error(f"Coluna ausente: {col}")
+            raise ValueError(f"Coluna ausente: {col}")
+
+    logging.info("Dados corretos")
+
     return True
 
 
