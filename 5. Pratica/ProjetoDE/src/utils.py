@@ -100,12 +100,12 @@ def preparation(df, configs):
     table_name = configs["database"]["table"]
 
    with sqlite3.connect(db_path) as conn:
-    df.to_sql(
-        table_name,
-        conn,
-        if_exists="replace",
-        index=False
-    )
+        df.to_sql(
+            table_name,
+            conn,
+            if_exists="replace",
+            index=False
+        )
     
     logging.info("Dados salvos com sucesso no SQLite")
     return True
