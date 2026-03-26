@@ -19,7 +19,7 @@ def ingestion(configs):
          "results": configs["api"]["results"]
     }
 
-    response = requests.get(url, params=params)
+    response = requests.get(url, params=params, timeout=30)
 
     response.raise_for_status()
 
@@ -61,7 +61,7 @@ def validation_inputs(df, configs):
 
     logging.info("Dados corretos")
 
-    return True
+    return df
 
 
 def preparation(df, configs):
@@ -74,7 +74,7 @@ def preparation(df, configs):
         - Salva em SQLite (assets/)
     """
     # ---------- validação dos inputs ----------
-    validation_inputs(df, configs)
+    df = validation_inputs(df, configs)
     
     # ---------- Renomear colunas ----------
     logging.info("Iniciando preparação dos dados")
@@ -108,5 +108,5 @@ def preparation(df, configs):
         )
     
     logging.info("Dados salvos com sucesso no SQLite")
-    return True
+    return df
 
