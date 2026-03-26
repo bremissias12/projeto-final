@@ -1,12 +1,12 @@
 ## Como executar
 
-```bash
-python -m venv .venv
-source .venv/Scripts/activate
-pip install -r requirements.txt
-python src/app.py
-
-
+no bash:
+> python -m venv .venv
+> source .venv/Scripts/activate
+> pip install -r requirements.txt
+> python src/app.py
+* O banco SQLite será criado automaticamente em assets/database.db.
+-----//------------------
 
 # Python Course
 
