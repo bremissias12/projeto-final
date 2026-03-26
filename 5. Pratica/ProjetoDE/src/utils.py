@@ -66,6 +66,7 @@ def validation_inputs(df, configs):
 
 
 def preparation(df, configs):
+    
     """
     Função de preparação dos dados:
         - Renomeia colunas
@@ -73,7 +74,8 @@ def preparation(df, configs):
         - Remove caracter especial
         - Salva em SQLite (assets/)
     """
-
+     # ---------- validação dos inputs ----------
+    validation_inputs(df, configs)
     # ---------- Renomear colunas ----------
     df = df.rename(columns={
         "name.first": "first_name",
