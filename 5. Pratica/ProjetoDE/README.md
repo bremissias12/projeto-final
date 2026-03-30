@@ -11,33 +11,41 @@
 
 ```bash```
 git clone https://github.com/bremissias12/projeto-final.git
-cd projeto-final-de/5.\ Pratica/ProjetoDE
+
+cd ".\5. Pratica\ProjetoDE"
 
 ## 2 Criar ambiente virtual
 python -m venv .venv
 
 ```bash```
-source .venv/Scripts/activate
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+.venv/Scripts/activate  
 
 ## 3 Instalar dependências
 
 ```bash```
+
 pip install -r requirements.txt
 
 ## 4 Executar o pipeline
-python src/app.py
+python .\src\app.py
 
 O pipeline irá:
 - Consumir dados da API randomuser.me
 - Validar os dados
 - Preparar e transformar as informações
-- Salvar os dados em um banco SQLite
+- Salvar os dados em um banco SQLitetox
 
 O banco será criado em:
 assets/database.db
 
 ## 5 Executar usando tox
 O tox cria um ambiente isolado e executa o projeto automaticamente: 
+
+```instalar o Tox```
+pip install tox
 
 ```bash```
 tox
