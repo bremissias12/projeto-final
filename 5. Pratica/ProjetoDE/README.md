@@ -10,7 +10,7 @@
 ### 1 Clonar o repositório
 
 ```bash```
-git clone https://github.com/Lucadavih/projeto-final-de.git
+git clone https://github.com/bremissias12/projeto-final.git
 cd projeto-final-de/5.\ Pratica/ProjetoDE
 
 ## 2 Criar ambiente virtual
